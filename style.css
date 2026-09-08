@@ -5,6 +5,10 @@
   --cream: #fdf6ec;
   --cream-dark: #f3e5d3;
   --text: #3b2a20;
+  /* Diagram tokens — derived from the palette above (see .claude/skills/diagram-design) */
+  --dg-soft: #c7a18b;
+  --dg-accent-tint: rgba(169, 116, 91, 0.12);
+  --dg-rule: rgba(59, 42, 32, 0.14);
 }
 
 * {
@@ -249,6 +253,66 @@ section h2::after {
   padding: 24px;
   font-size: 0.85rem;
 }
+
+/* Diagrams (order flow / craft loop / day timeline) */
+.diagram-section {
+  background: var(--cream);
+}
+
+.diagram-section.alt {
+  background: var(--cream-dark);
+}
+
+.diagram-caption {
+  max-width: 560px;
+  margin: -20px auto 40px;
+  font-size: 0.98rem;
+  color: #5c4a3d;
+}
+
+.diagram-frame {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--dg-rule);
+  border-radius: 12px;
+  padding: 28px clamp(12px, 4vw, 32px);
+  overflow-x: auto;
+  box-shadow: 0 8px 24px rgba(74, 44, 30, 0.06);
+}
+
+.diagram-eyebrow {
+  font-family: 'Geist Mono', 'Nanum Gothic', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.diagram-frame h3 {
+  font-family: 'Gowun Batang', serif;
+  font-size: 1.3rem;
+  color: var(--brown-dark);
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.diagram-frame svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 560px;
+}
+
+/* Shared inline-SVG text roles across all three diagrams */
+.dg-node { fill: var(--text); font: 600 12px 'Geist', 'Noto Sans KR', 'Malgun Gothic', sans-serif; text-anchor: middle; }
+.dg-node.focal { fill: var(--brown-light); }
+.dg-sub { fill: var(--brown); font: 400 11px 'Geist', 'Noto Sans KR', 'Malgun Gothic', sans-serif; text-anchor: middle; }
+.dg-time { fill: var(--brown); font: 500 9px 'Geist Mono', monospace; text-anchor: middle; letter-spacing: 0.02em; }
+.dg-hub-name { fill: var(--cream); font: 600 15px 'Geist', 'Noto Sans KR', sans-serif; text-anchor: middle; }
+.dg-hub-sub { fill: var(--cream); opacity: 0.75; font: 400 11px 'Geist', 'Noto Sans KR', sans-serif; text-anchor: middle; }
 
 /* Responsive */
 @media (max-width: 640px) {
